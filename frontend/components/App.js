@@ -64,8 +64,21 @@ handleToggle = (clickedId) => { //Changes the status of toDos to completed
 
 handleClear = () =>{//Clears toDos that have been completed
  console.log('clear has been clicked')
+ const completedToDos = () => {
+   this.state.toDos.map(todo => {
+     console.log(todo.id)
+     const delId = todo.id
+     if(todo.completed === true) {
+      axios.delete(`http://localhost:9000/api/todos/${delId}`)
+      .then(res => {
+        this.getToDos
+      })
+      .catch(err => console.log(err))
+     }
+   })
+ }
+ completedToDos()
 }
-
   render() {
 
     const { toDos } = this.state
