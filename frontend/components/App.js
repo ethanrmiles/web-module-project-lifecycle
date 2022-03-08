@@ -50,12 +50,20 @@ handleAdd = (task) => { //Adds new toDos to the server
 
 handleToggle = (clickedId) => { //Changes the status of toDos to completed
   console.log('PARENTS HANDLE TOGGLE HAS BEEN RUN 🏃🏻‍♂️')
-  console.log(this.task.id)
+  console.log(clickedId)
+  const patchURL = `http://localhost:9000/api/todos/${clickedId}`
+  axios.patch(patchURL)
+  .then(res => { 
+    this.getToDos()
+  })
+  .catch(err => {
+    console.log(err)
+  })
 }
 
 
 handleClear = () =>{//Clears toDos that have been completed
- 
+ console.log('clear has been clicked')
 }
 
   render() {

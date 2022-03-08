@@ -8,7 +8,6 @@ export default class Form extends React.Component {
     evt.preventDefault()
     console.log('submit button clicked! 🧑🏼‍💻')
     this.props.handleAdd(this.state.input)
-    
   }
 
   handleChange = (evt) => {
